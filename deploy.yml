@@ -26,5 +26,5 @@
     - name: Start docker container
       docker_container:
         name: springBootTest
-        image: "rahul007/springboottest:1.1.1"
+        image: "rahul120494/springboottest:1.1.1"
         state: started
