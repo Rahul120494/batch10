@@ -1,0 +1,527 @@
+Started by user Rahul Bastia
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/devops
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (SCM)
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Rahul120494/batch10.git # timeout=10
+Fetching upstream changes from https://github.com/Rahul120494/batch10.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.17.1'
+ > git fetch --tags --progress -- https://github.com/Rahul120494/batch10.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision f6f9802365d2dca73985fa59a0709b5d12af8328 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f6f9802365d2dca73985fa59a0709b5d12af8328 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master f6f9802365d2dca73985fa59a0709b5d12af8328 # timeout=10
+Commit message: "Update deploy.yml"
+ > git rev-list --no-walk f6f9802365d2dca73985fa59a0709b5d12af8328 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Sonar scan of source code)
+[Pipeline] withSonarQubeEnv
+Injecting SonarQube environment variables using the configuration: sonarqube
+[Pipeline] {
+[Pipeline] sh
++ mvn clean package sonar:sonar
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] The POM for org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 is missing, no dependency information available
+[[1;33mWARNING[m] Failed to retrieve plugin descriptor for org.eclipse.m2e:lifecycle-mapping:1.0.0: Plugin org.eclipse.m2e:lifecycle-mapping:1.0.0 or one of its dependencies could not be resolved: Failure to find org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 in https://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------------------< [0;36mcom.casestudy:bootcamp[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding bootcamp 0.0.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:3.1.0:clean[m [1m(default-clean)[m @ [36mbootcamp[0;1m ---[m
+[[1;34mINFO[m] Deleting /var/lib/jenkins/workspace/devops/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:resources[m [1m(default-resources)[m @ [36mbootcamp[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mbootcamp[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 2 source files to /var/lib/jenkins/workspace/devops/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:testResources[m [1m(default-testResources)[m @ [36mbootcamp[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/devops/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mbootcamp[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /var/lib/jenkins/workspace/devops/target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.22.2:test[m [1m(default-test)[m @ [36mbootcamp[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running com.[1mTestMessageController[m
+21:54:04.251 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+21:54:04.306 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+21:54:04.336 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.TestMessageController] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+21:54:04.363 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.TestMessageController], using SpringBootContextLoader
+21:54:04.377 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.TestMessageController]: class path resource [com/TestMessageController-context.xml] does not exist
+21:54:04.379 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.TestMessageController]: class path resource [com/TestMessageControllerContext.groovy] does not exist
+21:54:04.380 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.TestMessageController]: no resource found for suffixes {-context.xml, Context.groovy}.
+21:54:04.381 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.TestMessageController]: TestMessageController does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:54:04.477 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.TestMessageController]
+21:54:04.638 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/var/lib/jenkins/workspace/devops/target/classes/com/Application.class]
+21:54:04.645 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.Application for test class com.TestMessageController
+21:54:04.820 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.TestMessageController]: using defaults.
+21:54:04.822 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+21:54:04.842 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+21:54:04.844 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+21:54:04.844 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@12591ac8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5a7fe64f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@38145825, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@41330d4f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1b66c0fb, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3e0e1046, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@24c1b2d2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7dc19a70, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@508dec2b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e4f4a5c]
+21:54:04.851 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@13d73f29 testClass = TestMessageController, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@565f390 testClass = TestMessageController, locations = '{}', classes = '{class com.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7b98f307, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@59474f18, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@175c2241, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7e6f74c], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+21:54:04.911 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.7.RELEASE)
+
+2021-06-04 21:54:05.712  INFO 9320 --- [           main] com.TestMessageController                : Starting TestMessageController on build-machine with PID 9320 (started by jenkins in /var/lib/jenkins/workspace/devops)
+2021-06-04 21:54:05.714  INFO 9320 --- [           main] com.TestMessageController                : No active profile set, falling back to default profiles: default
+2021-06-04 21:54:11.103  INFO 9320 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-04 21:54:11.295  INFO 9320 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-06-04 21:54:11.625  INFO 9320 --- [           main] com.TestMessageController                : Started TestMessageController in 6.686 seconds (JVM running for 8.647)
+2021-06-04 21:54:12.427  INFO 9320 --- [           main] com.MessageController                    : hello, its an info
+2021-06-04 21:54:12.458  INFO 9320 --- [           main] com.MessageController                    : hello from test app1
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m2[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.435 s - in com.[1mTestMessageController[m
+2021-06-04 21:54:12.566  INFO 9320 --- [       Thread-1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 2, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.1.2:jar[m [1m(default-jar)[m @ [36mbootcamp[0;1m ---[m
+[[1;34mINFO[m] Building jar: /var/lib/jenkins/workspace/devops/target/bootcamp-0.0.1-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mspring-boot-maven-plugin:2.1.7.RELEASE:repackage[m [1m(repackage)[m @ [36mbootcamp[0;1m ---[m
+[[1;34mINFO[m] Replacing main artifact with repackaged archive
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mspring-boot-maven-plugin:2.1.7.RELEASE:repackage[m [1m(default)[m @ [36mbootcamp[0;1m ---[m
+[[1;34mINFO[m] Replacing main artifact with repackaged archive
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------------------< [0;36mcom.casestudy:bootcamp[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding bootcamp 0.0.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;33mWARNING[m] The POM for org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 is missing, no dependency information available
+[[1;33mWARNING[m] Failed to retrieve plugin descriptor for org.eclipse.m2e:lifecycle-mapping:1.0.0: Plugin org.eclipse.m2e:lifecycle-mapping:1.0.0 or one of its dependencies could not be resolved: Failure to find org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 in https://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msonar-maven-plugin:3.9.0.2155:sonar[m [1m(default-cli)[m @ [36mbootcamp[0;1m ---[m
+[[1;34mINFO[m] User cache: /var/lib/jenkins/.sonar/cache
+[[1;34mINFO[m] SonarQube version: 7.1.0
+[[1;34mINFO[m] Default locale: "en", source code encoding: "UTF-8"
+[[1;34mINFO[m] Publish mode
+[[1;34mINFO[m] Load global settings
+[[1;34mINFO[m] Load global settings (done) | time=196ms
+[[1;34mINFO[m] Server id: AXnK8y-RxTMlaUzDL4gg
+[[1;34mINFO[m] User cache: /var/lib/jenkins/.sonar/cache
+[[1;34mINFO[m] Load plugins index
+[[1;34mINFO[m] Load plugins index (done) | time=135ms
+[[1;34mINFO[m] Load/download plugins
+[[1;34mINFO[m] Load/download plugins (done) | time=82ms
+[[1;34mINFO[m] Process project properties
+[[1;34mINFO[m] Load project repositories
+[[1;34mINFO[m] Load project repositories (done) | time=161ms
+[[1;34mINFO[m] Load quality profiles
+[[1;34mINFO[m] Load quality profiles (done) | time=61ms
+[[1;34mINFO[m] Load active rules
+[[1;34mINFO[m] Load active rules (done) | time=967ms
+[[1;34mINFO[m] Load metrics repository
+[[1;34mINFO[m] Load metrics repository (done) | time=34ms
+[[1;34mINFO[m] Project key: com.casestudy:bootcamp
+[[1;34mINFO[m] Project base dir: /var/lib/jenkins/workspace/devops
+[[1;34mINFO[m] -------------  Scan bootcamp
+[[1;34mINFO[m] Load server rules
+[[1;34mINFO[m] Load server rules (done) | time=220ms
+[[1;34mINFO[m] Base dir: /var/lib/jenkins/workspace/devops
+[[1;34mINFO[m] Working dir: /var/lib/jenkins/workspace/devops/target/sonar
+[[1;34mINFO[m] Source paths: pom.xml, src/main/java
+[[1;34mINFO[m] Test paths: src/test/java
+[[1;34mINFO[m] Source encoding: UTF-8, default locale: en
+[[1;34mINFO[m] Index files
+[[1;34mINFO[m] 4 files indexed
+[[1;34mINFO[m] Quality profile for java: Sonar way
+[[1;34mINFO[m] Quality profile for xml: Sonar way
+[[1;34mINFO[m] Sensor JavaSquidSensor [java]
+[[1;34mINFO[m] Configured Java source version (sonar.java.source): 8
+[[1;34mINFO[m] JavaClasspath initialization
+[[1;34mINFO[m] JavaClasspath initialization (done) | time=19ms
+[[1;34mINFO[m] JavaTestClasspath initialization
+[[1;34mINFO[m] JavaTestClasspath initialization (done) | time=3ms
+[[1;34mINFO[m] Java Main Files AST scan
+[[1;34mINFO[m] 2 source files to be analyzed
+[[1;31mERROR[m] Unable to create symbol table for : /var/lib/jenkins/workspace/devops/src/main/java/com/Application.java
+java.lang.IllegalArgumentException: null
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:160)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:143)
+	at org.sonar.java.resolve.BytecodeCompleter.loadClass(BytecodeCompleter.java:204)
+	at org.sonar.java.resolve.Symbols.<init>(Symbols.java:176)
+	at org.sonar.java.resolve.SemanticModel.createFor(SemanticModel.java:59)
+	at org.sonar.java.model.VisitorsBridge.visitFile(VisitorsBridge.java:110)
+	at org.sonar.java.ast.JavaAstScanner.simpleScan(JavaAstScanner.java:96)
+	at org.sonar.java.ast.JavaAstScanner.scan(JavaAstScanner.java:68)
+	at org.sonar.java.JavaSquid.scanSources(JavaSquid.java:119)
+	at org.sonar.java.JavaSquid.scan(JavaSquid.java:113)
+	at org.sonar.plugins.java.JavaSquidSensor.execute(JavaSquidSensor.java:92)
+	at org.sonar.scanner.sensor.SensorWrapper.analyse(SensorWrapper.java:53)
+	at org.sonar.scanner.phases.SensorsExecutor.executeSensor(SensorsExecutor.java:88)
+	at org.sonar.scanner.phases.SensorsExecutor.execute(SensorsExecutor.java:82)
+	at org.sonar.scanner.phases.SensorsExecutor.execute(SensorsExecutor.java:68)
+	at org.sonar.scanner.phases.AbstractPhaseExecutor.execute(AbstractPhaseExecutor.java:88)
+	at org.sonar.scanner.scan.ModuleScanContainer.doAfterStart(ModuleScanContainer.java:180)
+	at org.sonar.core.platform.ComponentContainer.startComponents(ComponentContainer.java:135)
+	at org.sonar.core.platform.ComponentContainer.execute(ComponentContainer.java:121)
+	at org.sonar.scanner.scan.ProjectScanContainer.scan(ProjectScanContainer.java:302)
+	at org.sonar.scanner.scan.ProjectScanContainer.scanRecursively(ProjectScanContainer.java:297)
+	at org.sonar.scanner.scan.ProjectScanContainer.doAfterStart(ProjectScanContainer.java:271)
+	at org.sonar.core.platform.ComponentContainer.startComponents(ComponentContainer.java:135)
+	at org.sonar.core.platform.ComponentContainer.execute(ComponentContainer.java:121)
+	at org.sonar.scanner.task.ScanTask.execute(ScanTask.java:48)
+	at org.sonar.scanner.task.TaskContainer.doAfterStart(TaskContainer.java:84)
+	at org.sonar.core.platform.ComponentContainer.startComponents(ComponentContainer.java:135)
+	at org.sonar.core.platform.ComponentContainer.execute(ComponentContainer.java:121)
+	at org.sonar.scanner.bootstrap.GlobalContainer.executeTask(GlobalContainer.java:121)
+	at org.sonar.batch.bootstrapper.Batch.doExecuteTask(Batch.java:116)
+	at org.sonar.batch.bootstrapper.Batch.execute(Batch.java:71)
+	at org.sonarsource.scanner.api.internal.batch.BatchIsolatedLauncher.execute(BatchIsolatedLauncher.java:46)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.sonarsource.scanner.api.internal.IsolatedLauncherProxy.invoke(IsolatedLauncherProxy.java:60)
+	at com.sun.proxy.$Proxy24.execute(Unknown Source)
+	at org.sonarsource.scanner.api.EmbeddedScanner.doExecute(EmbeddedScanner.java:189)
+	at org.sonarsource.scanner.api.EmbeddedScanner.execute(EmbeddedScanner.java:138)
+	at org.sonarsource.scanner.maven.bootstrap.ScannerBootstrapper.execute(ScannerBootstrapper.java:65)
+	at org.sonarsource.scanner.maven.SonarQubeMojo.execute(SonarQubeMojo.java:108)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:210)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:156)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:956)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+
+[[1;31mERROR[m] Unable to create symbol table for : /var/lib/jenkins/workspace/devops/src/main/java/com/MessageController.java
+java.lang.IllegalArgumentException: null
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:160)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:143)
+	at org.sonar.java.resolve.BytecodeCompleter.loadClass(BytecodeCompleter.java:204)
+	at org.sonar.java.resolve.Symbols.<init>(Symbols.java:176)
+	at org.sonar.java.resolve.SemanticModel.createFor(SemanticModel.java:59)
+	at org.sonar.java.model.VisitorsBridge.visitFile(VisitorsBridge.java:110)
+	at org.sonar.java.ast.JavaAstScanner.simpleScan(JavaAstScanner.java:96)
+	at org.sonar.java.ast.JavaAstScanner.scan(JavaAstScanner.java:68)
+	at org.sonar.java.JavaSquid.scanSources(JavaSquid.java:119)
+	at org.sonar.java.JavaSquid.scan(JavaSquid.java:113)
+	at org.sonar.plugins.java.JavaSquidSensor.execute(JavaSquidSensor.java:92)
+	at org.sonar.scanner.sensor.SensorWrapper.analyse(SensorWrapper.java:53)
+	at org.sonar.scanner.phases.SensorsExecutor.executeSensor(SensorsExecutor.java:88)
+	at org.sonar.scanner.phases.SensorsExecutor.execute(SensorsExecutor.java:82)
+	at org.sonar.scanner.phases.SensorsExecutor.execute(SensorsExecutor.java:68)
+	at org.sonar.scanner.phases.AbstractPhaseExecutor.execute(AbstractPhaseExecutor.java:88)
+	at org.sonar.scanner.scan.ModuleScanContainer.doAfterStart(ModuleScanContainer.java:180)
+	at org.sonar.core.platform.ComponentContainer.startComponents(ComponentContainer.java:135)
+	at org.sonar.core.platform.ComponentContainer.execute(ComponentContainer.java:121)
+	at org.sonar.scanner.scan.ProjectScanContainer.scan(ProjectScanContainer.java:302)
+	at org.sonar.scanner.scan.ProjectScanContainer.scanRecursively(ProjectScanContainer.java:297)
+	at org.sonar.scanner.scan.ProjectScanContainer.doAfterStart(ProjectScanContainer.java:271)
+	at org.sonar.core.platform.ComponentContainer.startComponents(ComponentContainer.java:135)
+	at org.sonar.core.platform.ComponentContainer.execute(ComponentContainer.java:121)
+	at org.sonar.scanner.task.ScanTask.execute(ScanTask.java:48)
+	at org.sonar.scanner.task.TaskContainer.doAfterStart(TaskContainer.java:84)
+	at org.sonar.core.platform.ComponentContainer.startComponents(ComponentContainer.java:135)
+	at org.sonar.core.platform.ComponentContainer.execute(ComponentContainer.java:121)
+	at org.sonar.scanner.bootstrap.GlobalContainer.executeTask(GlobalContainer.java:121)
+	at org.sonar.batch.bootstrapper.Batch.doExecuteTask(Batch.java:116)
+	at org.sonar.batch.bootstrapper.Batch.execute(Batch.java:71)
+	at org.sonarsource.scanner.api.internal.batch.BatchIsolatedLauncher.execute(BatchIsolatedLauncher.java:46)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.sonarsource.scanner.api.internal.IsolatedLauncherProxy.invoke(IsolatedLauncherProxy.java:60)
+	at com.sun.proxy.$Proxy24.execute(Unknown Source)
+	at org.sonarsource.scanner.api.EmbeddedScanner.doExecute(EmbeddedScanner.java:189)
+	at org.sonarsource.scanner.api.EmbeddedScanner.execute(EmbeddedScanner.java:138)
+	at org.sonarsource.scanner.maven.bootstrap.ScannerBootstrapper.execute(ScannerBootstrapper.java:65)
+	at org.sonarsource.scanner.maven.SonarQubeMojo.execute(SonarQubeMojo.java:108)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:210)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:156)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:956)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+
+[[1;34mINFO[m] 2/2 source files have been analyzed
+[[1;34mINFO[m] Java Main Files AST scan (done) | time=187ms
+[[1;34mINFO[m] Java Test Files AST scan
+[[1;34mINFO[m] 1 source files to be analyzed
+[[1;31mERROR[m] Unable to create symbol table for : /var/lib/jenkins/workspace/devops/src/test/java/com/TestMessageController.java
+java.lang.IllegalArgumentException: null
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:160)
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:143)
+	at org.sonar.java.resolve.BytecodeCompleter.loadClass(BytecodeCompleter.java:204)
+	at org.sonar.java.resolve.Symbols.<init>(Symbols.java:176)
+	at org.sonar.java.resolve.SemanticModel.createFor(SemanticModel.java:59)
+	at org.sonar.java.model.VisitorsBridge.visitFile(VisitorsBridge.java:110)
+	at org.sonar.java.ast.JavaAstScanner.simpleScan(JavaAstScanner.java:96)
+	at org.sonar.java.ast.JavaAstScanner.scan(JavaAstScanner.java:68)
+	at org.sonar.java.JavaSquid.scanTests(JavaSquid.java:125)
+	at org.sonar.java.JavaSquid.scan(JavaSquid.java:114)
+	at org.sonar.plugins.java.JavaSquidSensor.execute(JavaSquidSensor.java:92)
+	at org.sonar.scanner.sensor.SensorWrapper.analyse(SensorWrapper.java:53)
+	at org.sonar.scanner.phases.SensorsExecutor.executeSensor(SensorsExecutor.java:88)
+	at org.sonar.scanner.phases.SensorsExecutor.execute(SensorsExecutor.java:82)
+	at org.sonar.scanner.phases.SensorsExecutor.execute(SensorsExecutor.java:68)
+	at org.sonar.scanner.phases.AbstractPhaseExecutor.execute(AbstractPhaseExecutor.java:88)
+	at org.sonar.scanner.scan.ModuleScanContainer.doAfterStart(ModuleScanContainer.java:180)
+	at org.sonar.core.platform.ComponentContainer.startComponents(ComponentContainer.java:135)
+	at org.sonar.core.platform.ComponentContainer.execute(ComponentContainer.java:121)
+	at org.sonar.scanner.scan.ProjectScanContainer.scan(ProjectScanContainer.java:302)
+	at org.sonar.scanner.scan.ProjectScanContainer.scanRecursively(ProjectScanContainer.java:297)
+	at org.sonar.scanner.scan.ProjectScanContainer.doAfterStart(ProjectScanContainer.java:271)
+	at org.sonar.core.platform.ComponentContainer.startComponents(ComponentContainer.java:135)
+	at org.sonar.core.platform.ComponentContainer.execute(ComponentContainer.java:121)
+	at org.sonar.scanner.task.ScanTask.execute(ScanTask.java:48)
+	at org.sonar.scanner.task.TaskContainer.doAfterStart(TaskContainer.java:84)
+	at org.sonar.core.platform.ComponentContainer.startComponents(ComponentContainer.java:135)
+	at org.sonar.core.platform.ComponentContainer.execute(ComponentContainer.java:121)
+	at org.sonar.scanner.bootstrap.GlobalContainer.executeTask(GlobalContainer.java:121)
+	at org.sonar.batch.bootstrapper.Batch.doExecuteTask(Batch.java:116)
+	at org.sonar.batch.bootstrapper.Batch.execute(Batch.java:71)
+	at org.sonarsource.scanner.api.internal.batch.BatchIsolatedLauncher.execute(BatchIsolatedLauncher.java:46)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.sonarsource.scanner.api.internal.IsolatedLauncherProxy.invoke(IsolatedLauncherProxy.java:60)
+	at com.sun.proxy.$Proxy24.execute(Unknown Source)
+	at org.sonarsource.scanner.api.EmbeddedScanner.doExecute(EmbeddedScanner.java:189)
+	at org.sonarsource.scanner.api.EmbeddedScanner.execute(EmbeddedScanner.java:138)
+	at org.sonarsource.scanner.maven.bootstrap.ScannerBootstrapper.execute(ScannerBootstrapper.java:65)
+	at org.sonarsource.scanner.maven.SonarQubeMojo.execute(SonarQubeMojo.java:108)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:210)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:156)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:148)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:956)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+
+[[1;34mINFO[m] 1/1 source files have been analyzed
+[[1;34mINFO[m] Java Test Files AST scan (done) | time=25ms
+[[1;34mINFO[m] Sensor JavaSquidSensor [java] (done) | time=1309ms
+[[1;34mINFO[m] Sensor SurefireSensor [java]
+[[1;34mINFO[m] parsing [/var/lib/jenkins/workspace/devops/target/surefire-reports]
+[[1;34mINFO[m] Sensor SurefireSensor [java] (done) | time=180ms
+[[1;34mINFO[m] Sensor JaCoCoSensor [java]
+[[1;34mINFO[m] Sensor JaCoCoSensor [java] (done) | time=3ms
+[[1;34mINFO[m] Sensor SonarJavaXmlFileSensor [java]
+[[1;34mINFO[m] 1 source files to be analyzed
+[[1;34mINFO[m] 1/1 source files have been analyzed
+[[1;34mINFO[m] Sensor SonarJavaXmlFileSensor [java] (done) | time=881ms
+[[1;34mINFO[m] Sensor XML Sensor [xml]
+[[1;34mINFO[m] Sensor XML Sensor [xml] (done) | time=300ms
+[[1;34mINFO[m] Sensor Zero Coverage Sensor
+[[1;34mINFO[m] Sensor Zero Coverage Sensor (done) | time=13ms
+[[1;34mINFO[m] Sensor CPD Block Indexer
+[[1;34mINFO[m] Sensor CPD Block Indexer (done) | time=38ms
+[[1;34mINFO[m] 1 file had no CPD blocks
+[[1;34mINFO[m] Calculating CPD for 1 file
+[[1;34mINFO[m] CPD calculation finished
+[[1;34mINFO[m] Analysis report generated in 246ms, dir size=47 KB
+[[1;34mINFO[m] Analysis reports compressed in 84ms, zip size=12 KB
+[[1;34mINFO[m] Analysis report uploaded in 38ms
+[[1;34mINFO[m] ANALYSIS SUCCESSFUL, you can browse http://35.238.241.227:9000/dashboard/index/com.casestudy:bootcamp
+[[1;34mINFO[m] Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[[1;34mINFO[m] More about the report processing at http://35.238.241.227:9000/api/ce/task?id=AXnZBSxWxTMlaUzDL5a2
+[[1;34mINFO[m] Task total time: 7.728 s
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  30.508 s
+[[1;34mINFO[m] Finished at: 2021-06-04T21:54:25Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[Pipeline] }
+[Pipeline] // withSonarQubeEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (publish report)
+[Pipeline] junit
+Recording test results
+None of the test reports contained any result
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (docker build)
+[Pipeline] echo
+starting docker build
+[Pipeline] sh
++ docker build . -t rahul120494/springboottest:1.1.1
+Sending build context to Docker daemon  17.68MB
+
+Step 1/3 : FROM openjdk:8-jdk-alpine
+ ---> a3562aa0b991
+Step 2/3 : COPY target/*.jar app.jar
+ ---> 4b5eaef85e23
+Step 3/3 : ENTRYPOINT ["java","-jar","/app.jar"]
+ ---> Running in 1dca840282e8
+Removing intermediate container 1dca840282e8
+ ---> e67e4099e565
+Successfully built e67e4099e565
+Successfully tagged rahul120494/springboottest:1.1.1
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (docker image push)
+[Pipeline] withCredentials
+Masking supported pattern matches of $dockerPassword
+[Pipeline] {
+[Pipeline] sh
+Warning: A secret was passed to "sh" using Groovy String interpolation, which is insecure.
+		 Affected argument(s) used the following variable(s): [dockerPassword]
+		 See https://jenkins.io/redirect/groovy-string-interpolation for details.
++ docker login -u rahul120494 -p ****
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /var/lib/jenkins/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] sh
++ docker push rahul120494/springboottest:1.1.1
+The push refers to repository [docker.io/rahul120494/springboottest]
+8b341637ecdd: Preparing
+ceaf9e1ebef5: Preparing
+9b9b7f3d56a0: Preparing
+f1b5933fe4b5: Preparing
+f1b5933fe4b5: Layer already exists
+ceaf9e1ebef5: Layer already exists
+9b9b7f3d56a0: Layer already exists
+8b341637ecdd: Pushed
+1.1.1: digest: sha256:5a34eec69641bc7e006ee04e3620fe9cc66db9c62b1016acdddf8c28daeffa18 size: 1159
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (docker image deploy)
+[Pipeline] ansiblePlaybook
+[devops] $ sshpass ******** /usr/bin/ansible-playbook deploy.yml -b --become-user root -u rahul_bastia007 -k
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+[DEPRECATION WARNING]: Distribution Ubuntu 18.04 on host node should use 
+/usr/bin/python3, but is using /usr/bin/python for backward compatibility with 
+prior Ansible releases. A future Ansible release will default to using the 
+discovered platform python for this host. See https://docs.ansible.com/ansible/
+2.9/reference_appendices/interpreter_discovery.html for more information. This 
+feature will be removed in version 2.12. Deprecation warnings can be disabled 
+by setting deprecation_warnings=False in ansible.cfg.
+ok: [node]
+
+TASK [Install pip module] ******************************************************
+ok: [node]
+
+TASK [Install docker] **********************************************************
+ok: [node]
+
+TASK [Start docker] ************************************************************
+ok: [node]
+
+TASK [Install docker-py python module] *****************************************
+ok: [node]
+
+TASK [Start docker container] **************************************************
+changed: [node]
+
+PLAY RECAP *********************************************************************
+node                       : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+The Pipeline status has changed
+[Pipeline] echo
+job completed successfully
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
