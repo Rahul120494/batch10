@@ -24,4 +24,4 @@
         state: present
         
     - name: Start docker container
-        command: docker run -it -d -p 8081:8888 rahul120494/springboottest:1.1.1
+      command: docker run -it -d -p 8081:8888 rahul120494/springboottest:1.1.1
