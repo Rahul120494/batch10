@@ -24,8 +24,4 @@
         state: present
         
     - name: Start docker container
-      docker_container:
-        name: springBootTest
-        image: "rahul120494/springboottest:1.1.1"
-        state: started
-        command: "docker run -it -d -p 8086:8086 rahul120494/springboottest:1.1.1"
+        command: "docker run -it -d -p 8888:8888 rahul120494/springboottest:1.1.1"
