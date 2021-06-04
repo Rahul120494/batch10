@@ -1,3 +1,3 @@
-FROM library/tomcat
-ADD target/bootcamp-0.0.1-SNAPSHOT.jar /user/local/tomcat/webapps
-CMD "catalina.sh" "run"
+FROM openjdk:8-jdk-alpine
+COPY target/*.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
